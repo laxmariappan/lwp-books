@@ -1,0 +1,33 @@
+.lwp-subscription-form-wrapper{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.lwp-subscription-form{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #ddd;
+    padding: 20px;
+}
+.lwp-subscription-form input[type="text"], .lwp-subscription-form input[type="email"]{
+    max-width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.lwp-subscription-form input[type="submit"]{
+    padding: 10px 20px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.lwp-subscription-form.hidden{
+    display: none;
+}
+#show-lwp-subscription-form{
+    cursor: pointer;
+    background-color: #0073aa;
+    color: #fff;
+    border:none;
+    padding: 10px 20px;
+}
