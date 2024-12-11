@@ -94,7 +94,9 @@ function save_book_subscribe_form_data() {
 add_action('wp_enqueue_scripts', 'load_subscription_form_styles');
 function load_subscription_form_styles() {
     // Change version to time() to avoid cache during development.
-    wp_enqueue_style('lwp-form-style', LWP_BOOKS_PATH . 'assets/css/style.css', [], time());
+   if( is_singular('book') ){
+        wp_enqueue_style('lwp-form-style', LWP_BOOKS_PATH . 'assets/css/style.css', [], time());
+   }
 }
 
 /**
@@ -102,5 +104,5 @@ function load_subscription_form_styles() {
  */
 add_action('wp_enqueue_scripts', 'load_subscription_form_script');
 function load_subscription_form_script() {
-    wp_enqueue_script('lwp-form-script', LWP_BOOKS_PATH . 'assets/js/script.js', [], time(),);
+    wp_enqueue_script('lwp-form-script', LWP_BOOKS_PATH . 'assets/js/script.js', [], time(), true);
 }
