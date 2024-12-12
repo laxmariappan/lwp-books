@@ -47,19 +47,6 @@ function save_book_subscribe_form_data() {
         $name = sanitize_text_field($_POST['name']);
         $email = sanitize_email($_POST['email']);
         $book_id = intval($_POST['book_id']);
-        // Save the form data as subscriber post type.
-        $subscriber_id = wp_insert_post(array(
-            'post_title'   => 'New Subscriber ' . $name,
-            'post_content' => '',
-            'post_type'    => 'subscriber',
-            'post_status'  => 'publish',
-            // add meta data to the subscriber post
-            'meta_input' => array(
-                'book_id' => $book_id,
-                'name'    => $name,
-                'email'   => $email,
-            )
-        ));
 
         // Insert the form data into the custom table.
         global $wpdb;
@@ -89,20 +76,22 @@ function save_book_subscribe_form_data() {
 }
 
 /**
+ * Register scripts and styles for the subscription form.
+ */
+add_action('wp_enqueue_scripts', 'register_subscription_form_scripts');
+function register_subscription_form_scripts() {
+    // Change the version to time() to avoid cache during development.
+    wp_register_style('lwp-form-style', LWP_BOOKS_PATH . 'assets/css/style.css', [], LWP_BOOKS_VERSION );
+    wp_register_script('lwp-form-script', LWP_BOOKS_PATH . 'assets/js/script.js', [], LWP_BOOKS_VERSION, true );
+}
+
+/**
  * Load the stylesheet for the subscription form.
  */
 add_action('wp_enqueue_scripts', 'load_subscription_form_styles');
 function load_subscription_form_styles() {
-    // Change version to time() to avoid cache during development.
    if( is_singular('book') ){
-        wp_enqueue_style('lwp-form-style', LWP_BOOKS_PATH . 'assets/css/style.css', [], time());
+    wp_enqueue_style('lwp-form-style');
+    wp_enqueue_script('lwp-form-script');
    }
-}
-
-/**
- * Load the script for the subscription form.
- */
-add_action('wp_enqueue_scripts', 'load_subscription_form_script');
-function load_subscription_form_script() {
-    wp_enqueue_script('lwp-form-script', LWP_BOOKS_PATH . 'assets/js/script.js', [], time(), true);
 }

@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'LWP_BOOKS_PATH', plugin_dir_url( __FILE__ ) );
+const LWP_BOOKS_VERSION = '1.2';
 
 /**
  * Create a custom table for subscribers
