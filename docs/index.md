@@ -110,9 +110,9 @@
 
 ## Contributing to WP Training team
 
-https://wordpress.org/support/forum/wp-advanced/
-https://make.wordpress.org/training/2024/12/05/proposal-segmenting-learning-pathway-courses-for-better-engagement/
-https://make.wordpress.org/training
-https://github.com/WordPress/Learn/issues/2044
+- https://wordpress.org/support/forum/wp-advanced/
+- https://make.wordpress.org/training/2024/12/05/proposal-segmenting-learning-pathway-courses-for-better-engagement/
+- https://make.wordpress.org/training
+- https://github.com/WordPress/Learn/issues/2044
 
 
